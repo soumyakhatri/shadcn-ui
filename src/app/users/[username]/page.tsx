@@ -7,6 +7,8 @@ import { BadgeCheck, Candy, Citrus, Shield } from 'lucide-react'
 import { Sheet, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from '@/components/ui/button'
 import EditUser from '@/components/EditUser'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import AppLineChart from '@/components/AppLineChart'
 
 async function SingleUserPage({ params }: { params: Promise<{ username: string }> }) {
     const { username } = await params
@@ -95,7 +97,7 @@ async function SingleUserPage({ params }: { params: Promise<{ username: string }
                                 <SheetTrigger asChild>
                                     <Button>Edit User</Button>
                                 </SheetTrigger>
-                                <EditUser/>
+                                <EditUser />
                             </Sheet>
                         </div>
                         <div className='space-y-4 mt-4'>
@@ -136,12 +138,22 @@ async function SingleUserPage({ params }: { params: Promise<{ username: string }
                 {/* RIGHT */}
                 <div className='w-full xl:w-2/3 space-y-6'>
                     {/* USER CARD CONTAINER */}
-                    <div className='bg-primary-foreground p-4 rounded-lg'>
-                        User card
+                    <div className='bg-primary-foreground p-4 rounded-lg space-y-2'>
+                        <div className="flex items-center gap-2">
+                            <Avatar className='size-12'>
+                                <AvatarImage src="https://www.pexels.com/photo/man-crossed-arms-1516680/" />
+                                <AvatarFallback>JD</AvatarFallback>
+                            </Avatar>
+                            <h1 className="text-xl font-semibold">John Doe</h1>
+                        </div>
+                        <p className='text-sm text-muted-foreground'>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis omnis vitae esse quo. Vel minima vero animi, quis hic eligendi libero doloremque eum dolores aperiam, atque sunt, reprehenderit enim qui.
+                            </p>
                     </div>
                     {/* CHART CONTAINER */}
                     <div className='bg-primary-foreground p-4 rounded-lg'>
-                        Chart
+                        <h1 className='text-xl font-semibold'>User Activity</h1>
+                        <AppLineChart/>
                     </div>
                 </div>
             </div>
