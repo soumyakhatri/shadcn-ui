@@ -49,7 +49,6 @@ export default async function RootLayout({
                 {children}
               </div>
             </main>
-            {children}
           </SidebarProvider>
         </ThemeProvider>
       </body>
