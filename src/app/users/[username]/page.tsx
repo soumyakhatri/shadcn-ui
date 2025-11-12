@@ -1,6 +1,8 @@
 import CardList from '@/components/CardList'
+import { Badge } from '@/components/ui/badge'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
+import { Progress } from '@/components/ui/progress'
 import { BadgeCheck, Candy, Citrus, Shield } from 'lucide-react'
 
 async function SingleUserPage({ params }: { params: Promise<{ username: string }> }) {
@@ -86,8 +88,34 @@ async function SingleUserPage({ params }: { params: Promise<{ username: string }
                     <div className='bg-primary-foreground p-4 rounded-lg'>
                         <h1 className='text-xl font-semibold'>User Information</h1>
                         <div className='space-y-4 mt-4'>
-                            
+                            <div className='flex flex-col gap-2 mb-8'>
+                                <p className='text-sm text-muted-foreground'>Profile Completion</p>
+                                <Progress value={66} />
+                            </div>
                         </div>
+                        <div className='flex flex-col gap-2'>
+                            <div className='flex items-center gap-2'>
+                                <span className='font-bold'>Username:</span>
+                                <span>john.doe</span>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <span className='font-bold'>Email:</span>
+                                <span>john.doe</span>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <span className='font-bold'>Phone:</span>
+                                <span>+91 7555659852</span>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <span className='font-bold'>Location:</span>
+                                <span>Bhopal, MP</span>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <span className='font-bold'>Role:</span>
+                                <Badge>Admin</Badge>
+                            </div>
+                        </div>
+                        <p className='text-sm text-muted-foreground mt-4'>Joined on 2025.01.01</p>
                     </div>
                     {/* CARD LIST CONTAINER */}
                     <div className='bg-primary-foreground p-4 rounded-lg'>
