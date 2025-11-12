@@ -4,6 +4,9 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
 import { Progress } from '@/components/ui/progress'
 import { BadgeCheck, Candy, Citrus, Shield } from 'lucide-react'
+import { Sheet, SheetTrigger } from "@/components/ui/sheet"
+import { Button } from '@/components/ui/button'
+import EditUser from '@/components/EditUser'
 
 async function SingleUserPage({ params }: { params: Promise<{ username: string }> }) {
     const { username } = await params
@@ -86,7 +89,15 @@ async function SingleUserPage({ params }: { params: Promise<{ username: string }
                     </div>
                     {/* INFORMATION CONTAINER */}
                     <div className='bg-primary-foreground p-4 rounded-lg'>
-                        <h1 className='text-xl font-semibold'>User Information</h1>
+                        <div className='flex justify-between items-center'>
+                            <h1 className='text-xl font-semibold'>User Information</h1>
+                            <Sheet>
+                                <SheetTrigger asChild>
+                                    <Button>Edit User</Button>
+                                </SheetTrigger>
+                                <EditUser/>
+                            </Sheet>
+                        </div>
                         <div className='space-y-4 mt-4'>
                             <div className='flex flex-col gap-2 mb-8'>
                                 <p className='text-sm text-muted-foreground'>Profile Completion</p>
